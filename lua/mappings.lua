@@ -8,6 +8,24 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+-- Controls
+map("n", "<M-Up>", ":m .-2<CR>==", { desc = "Move line up" })
+map("n", "<M-Down>", ":m .+1<CR>==", { desc = "Move line down" })
+
+map("i", "<M-Up>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
+map("i", "<M-Down>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
+
+map("n", "<leader>j", function ()
+  vim.diagnostic.jump({count = 1})
+end, {desc = "Next Diagnostics"})
+
+map("n", "<leader>k", function ()
+  vim.diagnostic.jump({count = -1})
+end, {desc = "Next Diagnostics"})
+--
+
+--Cmp autocomplete
+
 
 map("n", "<Leader>dl", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debugger step into" })
 map("n", "<Leader>dj", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Debugger step over" })
