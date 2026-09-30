@@ -9,7 +9,8 @@ return {
         ["<S-Tab>"] = cmp.mapping.select_prev_item(),
         ["<Down>"] = cmp.mapping.select_next_item(),
         ["<Up>"] = cmp.mapping.select_prev_item(),
-        ["<CR>"] = cmp.mapping(function () 
+        ["<CR>"] = cmp.mapping(function (fallback) 
+            fallback()
         end, {"i", "s"}),
       })
     end,
